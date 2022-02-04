@@ -1,0 +1,26 @@
+{
+	"name": "BusinessCases",
+	"type": "corebos-module",
+	"properties": {
+		"name": "BusinessCases",
+		"description": "Group and analyze records into logical business related cases.",
+		"keywords": ["contact","client","case"],
+		"homepage": "http://corebos.org/documentation/doku.php?id=en:extensions:extensions:businesscase",
+		"version": "1.0",
+		"time": "2022-02-04",
+		"license": "Vizsage",
+		"extra": {
+			"distribution": "Free"
+		},
+		"authors": [
+					{
+					"name": "Joe Bordes",
+					"email": "info(at)tsolucio(dot)com"
+					}
+		],
+		"support": {
+				"email": "info(at)tsolucio(dot)com",
+				"source": "https://github.com/coreBOS/BusinessCase.git"
+		}
+	}
+}
