@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<updatesChangeLog>
+<changeSet>
+	<author>geofreybundala</author>
+	<description> remove cbBCaseHandler Events </description>
+	<filename>modules/cbBCase/changesets/unregisterHandlerEvents.php</filename>
+	<classname>unregisterHandlerEvents</classname>
+	<systemupdate>true</systemupdate>
+</changeSet>
+<changeSet>
+	<author>geofreybundala</author>
+	<description> remove cbBCaseHandler Events </description>
+	<filename>modules/cbBCase/changesets/removeBusinessActionLink.php</filename>
+	<classname>removeBusinessActionLink</classname>
+	<systemupdate>true</systemupdate>
+</changeSet>
+<changeSet>
+	<author>geofreybundala</author>
+	<description> change Display Type </description>
+	<filename>modules/cbBCase/changesets/changeDisplayType.php</filename>
+	<classname>changeDisplayType</classname>
+	<systemupdate>true</systemupdate>
+</changeSet>
+</updatesChangeLog>
