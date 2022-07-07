@@ -14,7 +14,7 @@
 * at <http://corebos.org/documentation/doku.php?id=en:devel:vpl11>
 *************************************************************************************************/
 
-class unregisterHandlerEvents extends cbupdaterWorker {
+class enhanceAutoRecalculate extends cbupdaterWorker {
 
 	public function applyChange() {
 		if ($this->hasError()) {
@@ -24,6 +24,24 @@ class unregisterHandlerEvents extends cbupdaterWorker {
 			$this->sendMsg('Changeset '.get_class($this).' already applied!');
 		} else {
 			global $adb;
+			// Update fields
+			$modname = 'cbBCase';
+			$fieldArray =array('actualcost', 'actualrevenue', 'actualroi');
+			$module = Vtiger_Module::getInstance($modname);
+			foreach ($fieldArray as $field) {
+				$fld_ref = Vtiger_Field::getInstance($field, $module);
+				$this->ExecuteQuery("UPDATE vtiger_field SET displaytype='4' WHERE fieldid={$fld_ref->id}");
+			}
+			// delete Link
+			$action = array(
+				'menutype' => 'item',
+				'title' => 'Recalculate',
+				'href' => 'javascript:cbbcrecalculate($RECORD$);',
+				'icon' => '{"library":"utility", "icon":"formula"}',
+			);
+			BusinessActions::deleteLink($module->id, 'DETAILVIEWBASIC', $action['title'], $action['href'], $action['icon'], 0, null, true, 0);
+
+			// unregister Handlers
 			$ev = new VTEventsManager($adb);
 			$ev->unregisterHandler('cbBCaseHandler');
 			$this->sendMsg('Changeset '.get_class($this).' applied!');
@@ -32,25 +50,4 @@ class unregisterHandlerEvents extends cbupdaterWorker {
 		$this->finishExecution();
 	}
 
-	public function undoChange() {
-		if ($this->isBlocked()) {
-			return true;
-		}
-		if ($this->hasError()) {
-			$this->sendError();
-		}
-		if ($this->isApplied()) {
-			global $adb;
-				global $adb;
-				$evManezer = new VTEventsManager($adb);
-				$evManezer->registerHandler('vtiger.entity.aftersave', 'modules/cbBCase/cbBCaseHandler.php', 'cbBCaseHandler');
-				$evManezer->registerHandler('corebos.entity.link.after', 'modules/cbBCase/cbBCaseHandler.php', 'cbBCaseHandler');
-			$this->sendMsg('Changeset '.get_class($this).' undone!');
-			$this->markUndone();
-		} else {
-			$this->sendMsg('Changeset '.get_class($this).' not applied!');
-		}
-		$this->finishExecution();
-	}
 }
-
