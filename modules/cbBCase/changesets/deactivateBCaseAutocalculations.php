@@ -1,5 +1,4 @@
 <?php
-
 /*************************************************************************************************
  * Copyright 2022 JPL TSolucio, S.L. -- This file is a part of TSOLUCIO coreBOS Customizations.
  * Licensed under the vtiger CRM Public License Version 1.1 (the "License"); you may not use this
@@ -16,7 +15,6 @@
  *************************************************************************************************/
 
 class deactivateBCaseAutocalculations extends cbupdaterWorker {
-
 
 	public function applyChange() {
 		if ($this->hasError()) {
