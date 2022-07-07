@@ -15,11 +15,10 @@
  * at <http://corebos.org/documentation/doku.php?id=en:devel:vpl11>
  *************************************************************************************************/
 
-class deactivateBCaseAutocalculations extends cbupdaterWorker
-{
+class deactivateBCaseAutocalculations extends cbupdaterWorker {
 
-	public function applyChange()
-	{
+
+	public function applyChange() {
 		if ($this->hasError()) {
 			$this->sendError();
 		}
@@ -53,8 +52,7 @@ class deactivateBCaseAutocalculations extends cbupdaterWorker
 		$this->finishExecution();
 	}
 
-	public function undoChange()
-	{
+	public function undoChange() {
 		if ($this->isBlocked()) {
 			return true;
 		}
@@ -85,7 +83,7 @@ class deactivateBCaseAutocalculations extends cbupdaterWorker
 			$ev = new VTEventsManager($adb);
 			$ev->registerHandler('vtiger.entity.aftersave', 'modules/cbBCase/cbBCaseHandler.php', 'cbBCaseHandler');
 			$ev->registerHandler('corebos.entity.link.after', 'modules/cbBCase/cbBCaseHandler.php', 'cbBCaseHandler');
-			
+
 			$this->sendMsg('Changeset ' . get_class($this) . ' applied!');
 		} else {
 			$this->sendMsg('Changeset ' . get_class($this) . ' not applied!');
