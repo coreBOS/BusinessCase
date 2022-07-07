@@ -2,9 +2,9 @@
 <updatesChangeLog>
 <changeSet>
 	<author>geofreybundala</author>
-	<description> change Display Type </description>
-	<filename>modules/cbBCase/changesets/enhanceAutoRecalculate.php</filename>
-	<classname>enhanceAutoRecalculate</classname>
+	<description>deactivate hardcoded autocalculations </description>
+	<filename>modules/cbBCase/changesets/deactivateBCaseAutocalculations.php</filename>
+	<classname>deactivateBCaseAutocalculations</classname>
 	<systemupdate>true</systemupdate>
 </changeSet>
 </updatesChangeLog>
