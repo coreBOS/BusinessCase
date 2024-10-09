@@ -52,7 +52,6 @@ $mod_strings = array(
 
 'Add Potentials' => 'Add Opportunity',
 'Add Contacts' => 'Add Contact',
-'Add Vendors' => 'Add Vendor',
 'Add Accounts' => 'Add Organization',
 'Add Leads' => 'Add Lead',
 'Add Documents' => 'Add Document',
